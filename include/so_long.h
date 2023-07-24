@@ -6,7 +6,7 @@
 /*   By: mkramer <mkramer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:38:47 by mkramer           #+#    #+#             */
-/*   Updated: 2023/07/24 15:34:14 by mkramer          ###   ########.fr       */
+/*   Updated: 2023/07/24 16:26:46 by mkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define MIN_TILES_MSG "Error\nYou don't have the correct components\n"
 # define STRUCT_MSG "Error\nMap or structure is not correct\n"
 # define PATH_MSG "Error\nThere is not a valid path\n"
+# define E_INVALIDMAP "Invalid map\n"
 
 enum e_bool
 {
@@ -126,5 +127,7 @@ void		break_and_free(t_data **data);
 void		destroy_movements(t_data **data);
 int			get_collectible_count(char *map);
 int			print_usage(void);
+int		ft_validate_line_length(char *str_map);
+void		ft_error_message(char *str, int error);
 
 #endif
