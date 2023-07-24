@@ -6,7 +6,7 @@
 /*   By: mkramer <mkramer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:38:33 by mkramer           #+#    #+#             */
-/*   Updated: 2023/07/23 21:06:44 by mkramer          ###   ########.fr       */
+/*   Updated: 2023/07/24 16:50:01 by mkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ int	get_map_size(char *map)
 	fd = open (map, O_RDONLY);
 	buffer = malloc(100);
 	read_byte = read(fd, buffer, 100);
-	if (read_byte == 0)
+	// if (read_byte == -1)
+	// 		return (free_and_return(buffer));
+	if (read_byte <= 0)
 		return (free_and_return(buffer));
 	total_bytes += read_byte;
 	while (read_byte != 0)
