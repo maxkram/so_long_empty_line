@@ -6,7 +6,7 @@
 /*   By: mkramer <mkramer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:38:25 by mkramer           #+#    #+#             */
-/*   Updated: 2023/07/24 17:27:59 by mkramer          ###   ########.fr       */
+/*   Updated: 2023/07/26 17:03:07 by mkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	ft_move(t_data *data, t_position *position)
 	mlx_image_t		*player_box;
 	static int		move;
 
-	player = data->tiles->player_img;
-	player_box = data->player_box;
+	player = data->tiles->hero_image;
+	player_box = data->hero_box;
 	if (check_valid_move(data, position))
 	{
 		player_box->instances[0].y += position->y * SIZE;
@@ -66,13 +66,13 @@ void	keyhook(mlx_key_data_t keydata, void *param)
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 		mlx_close_window(data->mlx);
 	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
-		ft_move(data, data->game_movement[1]);
+		ft_move(data, data->game_move[1]);
 	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
-		ft_move(data, data->game_movement[3]);
+		ft_move(data, data->game_move[3]);
 	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
-		ft_move(data, data->game_movement[0]);
+		ft_move(data, data->game_move[0]);
 	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
-		ft_move(data, data->game_movement[2]);
+		ft_move(data, data->game_move[2]);
 	if (hero_is_on_exit(&data) && !data->collectible_list)
 	{
 		ft_printf("\n>>>  Game over <<<\n");

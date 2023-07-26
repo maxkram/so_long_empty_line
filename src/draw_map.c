@@ -6,7 +6,7 @@
 /*   By: mkramer <mkramer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:38:19 by mkramer           #+#    #+#             */
-/*   Updated: 2023/07/24 15:36:53 by mkramer          ###   ########.fr       */
+/*   Updated: 2023/07/26 15:51:29 by mkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	add_hero_box(t_data **data)
 	player_pos = get_component((*data)->map, 'P');
 	pos_x = player_pos->x * SIZE;
 	pos_y = player_pos->y * SIZE;
-	(*data)->player_box = mlx_new_image((*data)->mlx, SIZE, SIZE);
-	ft_memset((*data)->player_box->pixels, 0, SIZE * SIZE * 4);
-	mlx_image_to_window((*data)->mlx, (*data)->player_box, pos_x, pos_y);
+	(*data)->hero_box = mlx_new_image((*data)->mlx, SIZE, SIZE);
+	ft_memset((*data)->hero_box->pixels, 0, SIZE * SIZE * 4);
+	mlx_image_to_window((*data)->mlx, (*data)->hero_box, pos_x, pos_y);
 	free(player_pos);
 }
 

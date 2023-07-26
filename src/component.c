@@ -6,7 +6,7 @@
 /*   By: mkramer <mkramer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:38:09 by mkramer           #+#    #+#             */
-/*   Updated: 2023/07/19 15:09:53 by mkramer          ###   ########.fr       */
+/*   Updated: 2023/07/26 13:37:25 by mkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,11 @@ int	broken_map_struct(char **map, size_t array_length)
 		if (ft_strlen(map[i++]) != ligne)
 			return (TRUE);
 	return (FALSE);
+}
+
+int	empty_map(char *map_string)
+{
+	ft_printf(EMPTY_MSG);
+	free(map_string);
+	return (TRUE);
 }

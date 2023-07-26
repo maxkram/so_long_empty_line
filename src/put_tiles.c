@@ -6,7 +6,7 @@
 /*   By: mkramer <mkramer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:38:32 by mkramer           #+#    #+#             */
-/*   Updated: 2023/07/24 14:27:02 by mkramer          ###   ########.fr       */
+/*   Updated: 2023/07/26 17:00:02 by mkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	put_collectable(t_data **data, int width, int height)
 	mlx_texture_t	*tiles;
 	mlx_image_t		*image;
 
-	tiles = mlx_load_png("assets/tiles/other/31.png");
+	tiles = mlx_load_png("assets/collect.png");
 	image = mlx_texture_to_image((*data)->mlx, tiles);
 	if ((*data)->map[height][width] == 'C')
 	{
@@ -36,9 +36,9 @@ void	put_floor(t_data **data, char c, int width, int height)
 
 	tiles = (*data)->tiles;
 	if (c == '1')
-		mlx_image_to_window((*data)->mlx, tiles->wall_img, width, height);
+		mlx_image_to_window((*data)->mlx, tiles->wall_image, width, height);
 	else
-		mlx_image_to_window((*data)->mlx, tiles->floor_img, width, height);
+		mlx_image_to_window((*data)->mlx, tiles->floor_image, width, height);
 }
 
 void	add_hero(t_data **data)
@@ -52,8 +52,8 @@ void	add_hero(t_data **data)
 	posx = player_pos->x * SIZE;
 	posy = player_pos->y * SIZE;
 	player = (*data)->tiles;
-	mlx_image_to_window((*data)->mlx, player->player_img,
-		posx - 16, posy - 24);
+	mlx_image_to_window((*data)->mlx, player->hero_image,
+		posx - 16, posy - 16);
 	free(player_pos);
 }
 
@@ -64,7 +64,7 @@ void	put_door(t_data **data)
 
 	exit = get_component((*data)->map, 'E');
 	image = (*data)->tiles;
-	mlx_image_to_window((*data)->mlx, image->exit_img[0],
+	mlx_image_to_window((*data)->mlx, image->exit_image[0],
 		exit->x * SIZE, exit->y * SIZE);
 	free(exit);
 }

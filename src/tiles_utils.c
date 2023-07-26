@@ -6,7 +6,7 @@
 /*   By: mkramer <mkramer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:38:36 by mkramer           #+#    #+#             */
-/*   Updated: 2023/07/24 14:43:03 by mkramer          ###   ########.fr       */
+/*   Updated: 2023/07/26 17:03:30 by mkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ void	delete_tile_textures(t_data **data)
 	mlx_delete_texture(tiles->wall);
 	mlx_delete_texture(tiles->exit[0]);
 	mlx_delete_texture(tiles->exit[1]);
-	mlx_delete_texture(tiles->player);
+	mlx_delete_texture(tiles->hero);
 }
 
 void	destroy_movements(t_data **data)
 {
-	free((*data)->game_movement[0]);
-	free((*data)->game_movement[1]);
-	free((*data)->game_movement[2]);
-	free((*data)->game_movement[3]);
+	free((*data)->game_move[0]);
+	free((*data)->game_move[1]);
+	free((*data)->game_move[2]);
+	free((*data)->game_move[3]);
 }
 
 void	break_tile_struct(t_data **data)

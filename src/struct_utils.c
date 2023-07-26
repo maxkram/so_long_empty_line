@@ -6,7 +6,7 @@
 /*   By: mkramer <mkramer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:38:35 by mkramer           #+#    #+#             */
-/*   Updated: 2023/07/23 21:10:01 by mkramer          ###   ########.fr       */
+/*   Updated: 2023/07/26 17:05:24 by mkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ t_map	*init_structure(char *map_string)
 	map->movements[3]->x = -1;
 	map->movements[3]->y = 0;
 	map->map = ft_split(map_string, '\n');
-	map->player = get_hero_position(map->map);
+	map->hero = get_hero_position(map->map);
 	map->exit = get_exit_position(map->map);
 	map->map_loop = 0;
 	return (map);

@@ -6,41 +6,11 @@
 /*   By: mkramer <mkramer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:38:27 by mkramer           #+#    #+#             */
-/*   Updated: 2023/07/24 16:28:31 by mkramer          ###   ########.fr       */
+/*   Updated: 2023/07/26 14:19:11 by mkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
-int	ft_validate_line_length(char *str_map)
-{
-	int	i;
-	int	count_first_line;
-	int	count_other_lines;
-
-	i = 0;
-	count_first_line = 0;
-	count_other_lines = 0;
-	while (str_map[i] != '\n')
-	{
-		count_first_line++;
-		i++;
-	}
-	i++;
-	while (str_map[i] != '\0')
-	{
-		if (str_map[i] == '\n')
-		{
-			if (count_other_lines != count_first_line)
-				return (TRUE);
-			count_other_lines = 0;
-		}
-		else
-			count_other_lines++;
-		i++;
-	}
-	return (FALSE);
-}
 
 int	check_component(char *str)
 {

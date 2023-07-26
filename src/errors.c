@@ -6,7 +6,7 @@
 /*   By: mkramer <mkramer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:38:21 by mkramer           #+#    #+#             */
-/*   Updated: 2023/07/24 13:36:08 by mkramer          ###   ########.fr       */
+/*   Updated: 2023/07/26 17:05:10 by mkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	check_args(void)
 
 int	print_usage(void)
 {
-	// write(1, "Usage: ./Game <name>.ber\n", 25);
 	ft_printf("Usage: ./Game <name>.ber\n");
 	return (TRUE);
 }
@@ -35,7 +34,7 @@ int	components_error(char *map_string)
 int	structure_error(t_map *map)
 {
 	ft_printf(STRUCT_MSG);
-	free(map->player);
+	free(map->hero);
 	break_struct(map);
 	return (TRUE);
 }
@@ -44,12 +43,5 @@ int	no_valid_path(t_map *map)
 {
 	ft_printf(PATH_MSG);
 	break_struct(map);
-	return (TRUE);
-}
-
-int	empty_map(char *map_string)
-{
-	ft_printf(EMPTY_MSG);
-	free(map_string);
 	return (TRUE);
 }

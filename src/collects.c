@@ -6,7 +6,7 @@
 /*   By: mkramer <mkramer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:38:04 by mkramer           #+#    #+#             */
-/*   Updated: 2023/07/23 19:55:04 by mkramer          ###   ########.fr       */
+/*   Updated: 2023/07/26 15:50:56 by mkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	remove_collect(t_data **data)
 	int		pos_y;
 	int		pos_x;
 
-	pos_x = (*data)->player_box->instances[0].x / SIZE;
-	pos_y = (*data)->player_box->instances[0].y / SIZE;
+	pos_x = (*data)->hero_box->instances[0].x / SIZE;
+	pos_y = (*data)->hero_box->instances[0].y / SIZE;
 	tmp = (*data)->collectible_list;
 	if (tmp->x == pos_x && tmp->y == pos_y)
 	{
@@ -67,7 +67,7 @@ void	player_is_on_colectible(t_data **data)
 	int				pos_x;
 	int				pos_y;
 
-	player = (*data)->player_box->instances;
+	player = (*data)->hero_box->instances;
 	pos_x = player[0].x / SIZE;
 	pos_y = player[0].y / SIZE;
 	if ((*data)->map[pos_y][pos_x] == 'C')
@@ -84,8 +84,8 @@ void	all_collected(t_data *data)
 
 	if (!data->collectible_list)
 	{
-		exit_closed = data->tiles->exit_img[0];
-		exit_opened = data->tiles->exit_img[1];
+		exit_closed = data->tiles->exit_image[0];
+		exit_opened = data->tiles->exit_image[1];
 		ft_memcpy(exit_closed->pixels, exit_opened->pixels,
 			SIZE * SIZE * 4);
 	}

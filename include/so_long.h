@@ -6,7 +6,7 @@
 /*   By: mkramer <mkramer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:38:47 by mkramer           #+#    #+#             */
-/*   Updated: 2023/07/24 16:26:46 by mkramer          ###   ########.fr       */
+/*   Updated: 2023/07/26 17:10:22 by mkramer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ typedef struct s_texture
 	mlx_texture_t	*floor;
 	mlx_texture_t	*wall;
 	mlx_texture_t	*exit[3];
-	mlx_texture_t	*player;
-	mlx_image_t		*floor_img;
-	mlx_image_t		*wall_img;
-	mlx_image_t		*player_img;
-	mlx_image_t		*exit_img[3];
+	mlx_texture_t	*hero;
+	mlx_image_t		*floor_image;
+	mlx_image_t		*wall_image;
+	mlx_image_t		*hero_image;
+	mlx_image_t		*exit_image[3];
 }	t_texture;
 
 typedef struct s_data
@@ -58,29 +58,23 @@ typedef struct s_data
 	mlx_t			*mlx;
 	mlx_image_t		*img;
 	char			*collectible_count;
-	mlx_texture_t	*player;
-	mlx_image_t		*score;
 	t_texture		*tiles;
 	t_list			*collectible_list;
-	mlx_texture_t	*game_icon;
-	mlx_image_t		*player_img;
-	mlx_image_t		*player_box;
-	t_position		*game_movement[5];
+	mlx_image_t		*hero_box;
+	t_position		*game_move[5];
 	char			*map_string;
 	char			**map;
-	int				width;
-	int				height;
 }	t_data;
 
 typedef struct s_map
 {
 	char				**map;
-	struct s_position	*player;
+	struct s_position	*hero;
 	struct s_position	*exit;
 	struct s_visited	*visited_list;
 	struct s_visited	*double_visited;
 	struct s_position	*movements[5];
-	char				player_moved;
+	char				hero_moved;
 	int					map_loop;
 }	t_map;
 
@@ -127,7 +121,6 @@ void		break_and_free(t_data **data);
 void		destroy_movements(t_data **data);
 int			get_collectible_count(char *map);
 int			print_usage(void);
-int		ft_validate_line_length(char *str_map);
-void		ft_error_message(char *str, int error);
+int			ft_validate_line_length(char *str_map);
 
 #endif
